@@ -44,7 +44,9 @@ class CustomRoles {
           'Fn::Join': [
             ':',
             [
-              'arn:aws:logs',
+              'arn',
+              { Ref: 'AWS::Partition' },
+              'logs',
               { Ref: 'AWS::Region' },
               { Ref: 'AWS::AccountId' },
               `log-group:/aws/lambda/${functionName}:*`
@@ -59,7 +61,9 @@ class CustomRoles {
           'Fn::Join': [
             ':',
             [
-              'arn:aws:logs',
+              'arn',
+              { Ref: 'AWS::Partition' },
+              'logs',
               { Ref: 'AWS::Region' },
               { Ref: 'AWS::AccountId' },
               `log-group:/aws/lambda/${functionName}:*:*`
